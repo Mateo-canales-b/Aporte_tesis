@@ -1,13 +1,23 @@
-# Atari 2600 (Stella) support for multiple assemblers
-# - DASM
-# - CC65
+# Archivos auxiliares de LaTeX
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
 
-# Assembled binaries and object directories
-obj/
-a.out
-*.bin
-*.a26git brand
-
-# Add in special Atari 7800-based binaries for good measure
-*.a78
+# Archivos temporales del sistema
 .DS_Store
+
+# Carpetas de respaldo o temporales
+*.bak
+*.blg
+*.bbl
+*.lof
+*.lot
+*.nav
+*.snm
+
+# NO ignores el PDF (queremos incluirlo en Git)
+# *.pdf ← NO lo pongas
