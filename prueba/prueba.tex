@@ -23,8 +23,6 @@
 \usepackage{pgfplots}          % Para gráficos matemáticos
 \pgfplotsset{compat=1.18}      % Evita errores por compatibilidad
 % Comandos personalizados para imprimir números
-\newcommand{\entero}[1]{\pgfmathprintnumber[fixed, precision=0]{#1}}
-\newcommand{\decimal}[1]{\pgfmathprintnumber[fixed, precision=2]{#1}}
 \usepackage{caption}           % Para mejorar los captions
 \usepackage{pgf}               % Para...
 
@@ -568,6 +566,13 @@
     \end{minipage}
   }
 \end{frame}
+
+\newcommand{\entero}[1]{\pgfmathprintnumber[fixed, precision=0]{#1}}
+\newcommand{\decimal}[1]{\pgfmathprintnumber[fixed, precision=2]{#1}}
+\newcommand{\porcentaje}[1]{%
+  \pgfmathsetmacro{\temp}{#1*100}%
+  \pgfmathprintnumber[fixed, precision=2]{\temp}\%%
+  }
 
 \section{Cálculos con PGF}
 
