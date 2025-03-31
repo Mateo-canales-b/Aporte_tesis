@@ -1,5 +1,18 @@
 \documentclass{beamer}
 \usetheme{Darmstadt}
+
+%Temas sin barra de navegación:
+%default, boxes, Bergen, Boadilla, Madrid ,
+%AnnArbor, CambridgeUS, Pittsburgh, Rochester,
+%Temas con barra de navegación tipo árbol:
+%Antibes, JuanLesPins
+%Temas con tabla de contenidos lateral:
+%Berkeley, PaloAlto, Goettingen, Marburg, Hannover
+%Temas con navegación en miniframes:
+%Berlin, Ilmenau, Dresden, Darmstadt(usado en ésta presentación), Frankfurt, Singapore, Szeged
+%Temas con menús de sección y subsección:
+%Copenhagen, Luebeck, Malmoe, Warsaw
+
 \usepackage{comment}
 \usepackage[utf8]{inputenc}    % Para escribir acentos y caracteres especiales
 \usepackage{graphicx}          % Para insertar imágenes
@@ -36,7 +49,7 @@
 
 \section{Ecuaciones}
 
-%ejemplo ecuaciones
+% Ejemplo ecuaciones
 \begin{frame}
   \frametitle{Ecuación simple}
   Una fórmula conocida:
@@ -49,7 +62,7 @@
 
 \section{Imágenes}
 
-%grafico gspc vs estrategias
+% Gráfico gspc vs estrategias
 \begin{frame}
   \frametitle{Imagen de ejemplo}
   \begin{figure}
@@ -61,7 +74,7 @@
 
 \section{Tablas}
 
-%Tabla de datos
+% Tabla de datos
 \begin{frame}
   \frametitle{Tabla de datos}
   \begin{table}
@@ -79,7 +92,7 @@
   \end{table}
 \end{frame}
 
-%Tabla de nombres
+% Tabla de nombres
 \begin{frame}
     \frametitle{Tabla de nombres}
     \begin{flushright}
@@ -95,7 +108,7 @@
     \end{flushright}
 \end{frame}
 
-%Tabla de cantidades
+% Tabla de cantidades
 \begin{frame}
     \title{Tabla de cantidades}
     \begin{flushleft}
@@ -112,7 +125,7 @@
 
 \section{Gráficos con TikZ}
 
-%ráficos ecuaciones X^2/N
+% Gráficos ecuaciones X^2/N
 \begin{frame}
   \frametitle{Gráfico con TikZ}
   \begin{tikzpicture}[ scale=.8]
@@ -127,7 +140,7 @@
       \end{tikzpicture}
 \end{frame}
 
-%Círculo y triángulo 
+%C írculo y triángulo 
 \begin{frame}
     \begin{tikzpicture}
         \draw[red, thick] (0,0) rectangle (2,2);          % Cuadrado
@@ -144,7 +157,7 @@
     \end{tikzpicture}
 \end{frame}
 
-%Organigrama empresarial
+% Organigrama empresarial
 \begin{frame}
   \frametitle{Organigrama empresarial}
   \begin{figure}
@@ -202,7 +215,7 @@
   \end{figure}
 \end{frame}
 
-%Árbol binomial
+% Árbol binomial
 \begin{frame}
   \frametitle{Árbol binomial de decisión}
   \begin{tikzpicture}[sibling distance=3cm, level distance=2cm,
@@ -221,7 +234,7 @@
 
 \section{Colores}
 
-%Cuadros rgb
+% Cuadros rgb
 \begin{frame}
   \frametitle{Ejemplo con colores RGB}
   \begin{tikzpicture}
@@ -557,6 +570,9 @@
 \end{frame}
 
 \section{Cálculos con PGF}
+
+% Cálculos básicos
+
 \begin{frame}
   \frametitle{Aritmetica basica}
   \begin{itemize}
@@ -572,7 +588,8 @@
 
 \end{frame}
 
-% Nuevos frames agregados después del frame "Aritmetica basica"
+% Cálculo exponenciales
+
 \begin{frame}
   \frametitle{Exponenciales}
   \begin{itemize}
@@ -585,6 +602,8 @@
   \end{itemize}
 \end{frame}
 
+% Cálculo Logaritmos
+
 \begin{frame}
   \frametitle{Logaritmos}
   \begin{itemize}
@@ -594,6 +613,8 @@
     \item $\log_{10}(100) =$ \textbf{\logBaseTen}
   \end{itemize}
 \end{frame}
+
+% Cálculo Potencia y raíces
 
 \begin{frame}
   \frametitle{Potencias y raíces}
@@ -606,6 +627,8 @@
     \item $\sqrt[3]{27} =$ \textbf{\raizCubo}
   \end{itemize}
 \end{frame}
+
+% Cálculo trigonométrico
 
 \begin{frame}
   \frametitle{Trigonometría}
@@ -622,8 +645,11 @@
 \newcommand{\angelica}{40}
 \newcommand{\pudin}{.5}
 \pgfmathsetmacro{\ange}{\mateo+  \angelica*\pudin }
+
+% Cálculo con variables
+
 \begin{frame}
-  \frametitle{Prueba para angélica}
+  \frametitle{Cálculo con variables}
   \begin{itemize}
     \item mateo = \mateo
    \item angelica = \angelica 
@@ -631,5 +657,63 @@
   \end{itemize}
   La operacion de $ mateo + angelica \cdot pudin = $ \entero{\ange}  
 \end{frame}
+
+\section{Animaciones}
+\begin{frame}{Rango}
+  Enesta sección aparecen según las diapositivas que se le asignan y se asigna antes del texto entre\\
+  1- → Del primer paso en adelante\\
+-3 → Hasta el paso número 3\\
+2-5 → Del paso 2 al 5 (ambos inclusive)\\
+4 → Sólo el paso 4\\
+1-3,5 → Del paso 1 al 3, así como el 5\\
+\Large{
+  \textbf{Paso}:
+  \only<1>1
+  \only<2>2
+  \only<3>3
+  \only<4>4
+  \only<5>5
+  }
+    \begin{itemize}
+    \item <1->Primer elemento
+    \item <2-5>Segundo elemento
+    \item <-3>Tercer elemento
+    \item <4>Cuarto elemento
+    \item <1-3,5>Quinto elemento
+  \end{itemize}
+\end{frame}
+% Only/onslide 
+\begin{frame}
+  \frametitle{Only/onslide}
+  Este elementoes el mas basico y puedes decir en que paso quieres que aparezca el texto, la 
+  diferencia entre only y onslide es la cantidad de pasos que le das a cierto texto y se
+  puede combinar de la misma manera que el Rango 
+  \Huge{
+  \onslide<1->\textbf{Paso}:
+  \only<1>1
+  \only<2>2
+  \only<3>3
+  }
+  
+
+\end{frame}
+% Pause
+\begin{frame}
+  \frametitle{Pause}
+  Éste elemento hace que cada item aparezca en orden de diapositivas.
+  \Large{
+  \textbf{Paso}:
+  \only<1>1
+  \only<2>2
+  \only<3>3
+  }
+  \begin{itemize}
+    \item Primer elemento \pause
+    \item Segundo elemento \pause
+    \item Tercer elemento
+    \end{itemize}
+\end{frame}
+
+
 
 \end{document}
