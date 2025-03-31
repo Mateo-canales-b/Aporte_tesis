@@ -9,7 +9,11 @@
 \usetikzlibrary{calc}          % Para coordenadas calculadas con TikZ
 \usepackage{pgfplots}          % Para gráficos matemáticos
 \pgfplotsset{compat=1.18}      % Evita errores por compatibilidad
+% Comandos personalizados para imprimir números
+\newcommand{\entero}[1]{\pgfmathprintnumber[fixed, precision=0]{#1}}
+\newcommand{\decimal}[1]{\pgfmathprintnumber[fixed, precision=2]{#1}}
 \usepackage{caption}           % Para mejorar los captions
+\usepackage{pgf}               % Para...
 
 \title{Ejemplo completo en Beamer}
 \author{Tu Nombre Mateo}
@@ -21,7 +25,7 @@
 % Portada
 \begin{frame}
   \titlepage
-  \centering \includegraphics[width=3cm]{imagenes/logo.jpeg}
+  \centering \includegraphics[width=3cm]{imagenes/logo.png}
   \end{frame}
 
 % Tabla de contenidos
@@ -45,12 +49,12 @@
 
 \section{Imágenes}
 
-%grafico gspc y rsi 
+%grafico gspc vs estrategias
 \begin{frame}
   \frametitle{Imagen de ejemplo}
   \begin{figure}
     \centering
-    \includegraphics[width=0.8\linewidth]{imagenes/grafico1.png}
+    \includegraphics[width=0.8\linewidth]{imagenes/Grafico1.png}
     \caption{Un gráfico de ejemplo}
   \end{figure}
 \end{frame}
@@ -550,6 +554,82 @@
       {\tiny \captionof{figure}{Concentración medida frente a la cantidad de muestra (archivo CSV)}}
     \end{minipage}
   }
+\end{frame}
+
+\section{Cálculos con PGF}
+\begin{frame}
+  \frametitle{Aritmetica basica}
+  \begin{itemize}
+    \pgfmathsetmacro{\suma}{3+5}                % 8
+    \item $3 + 5 =$ \entero{\suma}
+    \pgfmathsetmacro{\resta}{10-4}              % 6
+    \item $10 - 4=$ \entero{\resta}
+    \pgfmathsetmacro{\multiplicacion}{7*6}      % 42
+    \item $7 \cdot 6 =$ \entero{\multiplicacion}
+    \pgfmathsetmacro{\division}{15/3}           % 5
+    \item $\frac{15}{3} =$ \entero{\division}
+    \end{itemize}
+
+\end{frame}
+
+% Nuevos frames agregados después del frame "Aritmetica basica"
+\begin{frame}
+  \frametitle{Exponenciales}
+  \begin{itemize}
+    \pgfmathsetmacro{\expoUno}{exp(1)}
+    \item $e^1 =$ \textbf{\expoUno}
+    \pgfmathsetmacro{\expoDos}{exp(2)}
+    \item $e^2 =$ \textbf{\expoDos}
+    \pgfmathsetmacro{\expNegativo}{exp(-1)}
+    \item $e^{-1} =$ \textbf{\expNegativo}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Logaritmos}
+  \begin{itemize}
+    \pgfmathsetmacro{\logNatural}{ln(10)}
+    \item $\ln(10) =$ \textbf{\logNatural}
+    \pgfmathsetmacro{\logBaseTen}{log10(100)}
+    \item $\log_{10}(100) =$ \textbf{\logBaseTen}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Potencias y raíces}
+  \begin{itemize}
+    \pgfmathsetmacro{\potencia}{3^4}
+    \item $3^4 =$ \textbf{\potencia}
+    \pgfmathsetmacro{\raizCuadrada}{sqrt(25)}
+    \item $\sqrt{25} =$ \textbf{\raizCuadrada}
+    \pgfmathsetmacro{\raizCubo}{27^(1/3)}
+    \item $\sqrt[3]{27} =$ \textbf{\raizCubo}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Trigonometría}
+  \begin{itemize}
+    \pgfmathsetmacro{\seno}{sin(deg(30))}
+    \item $\sin(30^\circ) =$ \textbf{\seno}
+    \pgfmathsetmacro{\coseno}{cos(deg(45))}
+    \item $\cos(45^\circ) =$ \textbf{\coseno}
+    \pgfmathsetmacro{\tangente}{tan(deg(60))}
+    \item $\tan(60^\circ) =$ \textbf{\tangente}
+  \end{itemize}
+\end{frame}
+\newcommand{\mateo}{20}
+\newcommand{\angelica}{40}
+\newcommand{\pudin}{.5}
+\pgfmathsetmacro{\ange}{\mateo+  \angelica*\pudin }
+\begin{frame}
+  \frametitle{Prueba para angélica}
+  \begin{itemize}
+    \item mateo = \mateo
+   \item angelica = \angelica 
+   \item pudin = \pudin
+  \end{itemize}
+  La operacion de $ mateo + angelica \cdot pudin = $ \entero{\ange}  
 \end{frame}
 
 \end{document}
