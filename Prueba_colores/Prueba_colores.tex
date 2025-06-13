@@ -1,0 +1,79 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usepackage{colortbl} % El paquete colortbl permite aplicar colores en tablas
+
+\title{Prueba de colores en LaTeX}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+% Ejemplos de uso de xcolor
+\textcolor{green}{Texto en verde.}
+
+\definecolor{moradoSuave}{RGB}{150, 100, 200}
+\textcolor{moradoSuave}{Texto en morado suave.}
+
+\colorbox{cyan}{\strut Texto con fondo cian.}
+
+\fcolorbox{red}{yellow}{\strut Texto con borde rojo y fondo amarillo.}
+
+{\color{gray}
+Este texto está en gris.\\
+Y esta línea también.}
+
+\colorlet{rojoClaro}{red!30}
+\textcolor{rojoClaro}{Rojo con 30\% de intensidad.}
+
+{\color{blue} Texto temporalmente azul.} Texto normal.
+
+\color{orange}
+Este texto y los siguientes serán naranja.
+
+\definecolor{grisFondo}{RGB}{230,230,230}
+\colorbox{grisFondo}{\strut Línea con fondo gris claro.}
+
+\vspace{1cm}
+
+% --- Más ejemplos avanzados con xcolor ---
+\definecolor{mezcla1}{rgb}{0.5,0.2,0.7}
+\definecolor{mezcla2}{rgb}{0.2,0.5,0.7}
+\colorlet{mezclaFinal}{mezcla1!50!mezcla2}
+\textcolor{mezclaFinal}{Texto con mezcla de dos colores.}
+
+\definecolor{colorCMYK}{cmyk}{0.4,0.2,0,0}
+\textcolor{colorCMYK}{Color definido con modelo CMYK.}
+
+\begin{itemize}
+  \item {\color{red} Ítem en rojo}
+  \item {\color{green!60!black} Ítem en verde oscuro}
+\end{itemize}
+
+\begin{tabular}{|c|c|}
+\hline
+\rowcolor{gray!20} Columna A & Columna B \\
+\hline
+\cellcolor{yellow!30} Dato 1 & \cellcolor{blue!10} Dato 2 \\
+\hline
+\end{tabular}
+
+\newcommand{\subrayadoColor}[2]{\textcolor{#1}{\underline{#2}}}
+\subrayadoColor{red}{Texto subrayado en rojo.}
+
+\textcolor{red}{Rojo}, \textcolor{orange}{naranja}, \textcolor{green}{verde}, \textcolor{blue}{azul}
+
+\vspace{1cm}
+
+% --- Definición de colores en formato hexadecimal ---
+\definecolor{hexAzul}{HTML}{1F77B4}
+\definecolor{hexNaranja}{HTML}{FF7F0E}
+\definecolor{hexVerde}{HTML}{2CA02C}
+
+\textcolor{hexAzul}{Texto en azul (hex: \#1F77B4)}\\
+\textcolor{hexNaranja}{Texto en naranja (hex: \#FF7F0E)}\\
+\textcolor{hexVerde}{Texto en verde (hex: \#2CA02C)}
+
+\end{document}
